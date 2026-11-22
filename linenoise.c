@@ -493,7 +493,8 @@ enum KEY_ACTION{
 	CTRL_F = 6,         /* Ctrl-f */
 	CTRL_H = 8,         /* Ctrl-h */
 	TAB = 9,            /* Tab */
-	CTRL_K = 11,        /* Ctrl+k */
+	LINE_FEED = 10,
+    CTRL_K = 11,        /* Ctrl+k */
 	CTRL_L = 12,        /* Ctrl+l */
 	ENTER = 13,         /* Enter */
 	CTRL_N = 14,        /* Ctrl-n */
@@ -1899,6 +1900,7 @@ char *linenoiseEditFeed(struct linenoiseState *l) {
     }
 
     switch(c) {
+	case LINE_FEED: 
     case ENTER:    /* enter */
         history_len--;
         free(history[history_len]);
